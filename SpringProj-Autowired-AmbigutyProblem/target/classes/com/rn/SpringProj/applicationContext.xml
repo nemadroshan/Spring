@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- If we two bean of the same type then we get Ambiguity problem which 
+		means Spring container get comfused while doing dependacy injection becoz 
+		it expect one bean but found two these are some to remove ambiguity problem -->
+
+	<!-- Soluton 1: using ref attribute -->
+	<!-- <bean id="alien" class="com.rn.SpringProj.Alien" autowire="byType">
+		<property name="com" ref="com2"></property>
+	</bean> -->
+	
+	<!--  Solution 2 : Using primary attribute -->
+	<bean id="alien" class="com.rn.SpringProj.Alien" autowire="byType">
+	</bean>
+	
+	
+	<bean id="com2" class="com.rn.SpringProj.Laptop"></bean>
+
+	<bean id="com" class="com.rn.SpringProj.Desktop" primary="true"></bean>
+</beans>
