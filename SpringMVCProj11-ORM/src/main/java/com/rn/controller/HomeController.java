@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rn.dao.AlienDao;
 import com.rn.model.Alien;
@@ -24,8 +26,9 @@ public class HomeController {
 		return "index";
 	}
 
-	@RequestMapping("/addAliean")
+	@PostMapping("/addAliean")
 	public String addAlien(@ModelAttribute("alien") Alien alien) {
+		dao.insertAlien(alien);
 		return "result";
 	}
 
@@ -33,12 +36,20 @@ public class HomeController {
 	public void addModaldata(Model model) {
 		model.addAttribute("name", "roshan");
 	}
-	
-	@GetMapping("getAliens")
-	  public String getAllAliens(Map<String, Object> map) {
+
+	@GetMapping("/getAliens")
+	public String getAllAliens(Map<String, Object> map) {
 		List<Alien> alies = dao.getAlies();
 		map.put("aliens", alies);
 		return "showAlien";
 	}
+
+	@GetMapping("/getAlienById")
+	public String getAllAliens(@RequestParam("id") int id, Map<String, Object> map) {
+		Alien alien = dao.getAlienById(id);
+		map.put("aliens", alien);
+		return "showAlien";
+	}
+
 
 }

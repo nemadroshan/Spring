@@ -24,4 +24,18 @@ public class AlienDao {
 		return list;
 	}
 
+	@Transactional
+	public Alien getAlienById(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		Alien a = session.get(Alien.class, id);
+		return a;
+	}
+
+	@Transactional
+	public void insertAlien(Alien alien) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		session.save(alien);
+	}
+
 }
