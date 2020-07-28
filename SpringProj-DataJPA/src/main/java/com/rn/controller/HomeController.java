@@ -60,5 +60,20 @@ public class HomeController {
 		map.put("result", alien);
 		return "result";
 	}
+	
+	@GetMapping("/getByName")
+	public String getAlieanById(@RequestParam("name") String name, Map<String, Object> map) {
+		Alien alien = repo.findByAname(name);
+		map.put("result", alien);
+		return "result";
+	}
+	
+	@GetMapping("/getListByName")
+	public String getListAlieanByName(@RequestParam("name") String name, Map<String, Object> map) {
+		List<Alien> aliens = repo.find(name);
+		map.put("result", aliens);
+		return "result";
+	}
+	
 
 }

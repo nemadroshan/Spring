@@ -32,5 +32,26 @@
 	</section>
 	<hr>
 	
+	<section>
+	<h1>Alien Form</h1>
+	<h2>Get BY name</h2>
+		<form action="getByName" method="get">
+			Enter name: <input type="text" name="name"><br> 
+			<input type="submit" value="submit">
+		</form>
+	</section>
+	<hr>
+	
+	
+	<section>
+	<h1>Alien Form</h1>
+	<h2>Get List of Alien BY name</h2>
+		<form action="getListByName" method="get">
+			Enter name: <input type="text" name="name"><br> 
+			<input type="submit" value="submit">
+		</form>
+	</section>
+	<hr>
+	
 </body>
 </html>
