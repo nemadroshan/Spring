@@ -51,6 +51,7 @@ public class HomeController {
 
 		List<Alien> aliens = repo.findAll();
 		map.put("result", aliens);
+		System.out.println("**********************************************");
 		return "result";
 	}
 
