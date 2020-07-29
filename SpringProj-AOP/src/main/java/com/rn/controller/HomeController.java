@@ -59,6 +59,7 @@ public class HomeController {
 	public String getAlieanById(@RequestParam("id") int id, Map<String, Object> map) {
 		Alien alien = repo.getOne(id);
 		map.put("result", alien);
+		
 		return "result";
 	}
 	
